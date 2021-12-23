@@ -18,4 +18,13 @@ class CategoriesController < ApplicationController
     @search_category = Item.where(category_id: @value).reverse_order
     render "search"
   end
+
+  def search_address
+    @value = params[:address_id]
+    @address = Address.find(@value)
+    @addresses = Address.all
+    @search_category = Item.where(address_id: @value).reverse_order
+    render "search"
+  end
+
 end

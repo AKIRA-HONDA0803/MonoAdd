@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
     @categories = Category.all
+    @addresses = Address.all
   end
 
   def new

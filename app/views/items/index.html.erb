@@ -1,14 +1,22 @@
 <h1>モノ一覧</h1>
 <p>全<%= @items.count %>個</p>
 <h3>カテゴリー一覧</h3>
-<% @categories.each do |category|  %>
-  <%= link_to search_category_path(category_id: category.id) do%>
+<% @categories.each do |category| %>
+  <%= link_to search_category_path(category_id: category.id) do %>
     <div>
       <%= category.name %>(<%= category.items.count %>)
     </div>
   <% end %>
 <% end %>
 
+<h3>場所一覧</h3>
+<% @addresses.each do |address| %>
+  <%= link_to search_address_path(address_id: address.id) do %>
+    <div>
+      <%= address.name %>(<%= address.item.count %>)
+    </div>
+  <% end %>
+<% end %>
 
 
 <% @items.each do |item| %>

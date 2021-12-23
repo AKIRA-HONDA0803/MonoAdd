@@ -10,5 +10,6 @@ Rails.application.routes.draw do
 
   get "search" => 'categories#search'
   get "search_category" => "categories#search_category"
+  get "search_address" => "categories#search_address"
 
 end
