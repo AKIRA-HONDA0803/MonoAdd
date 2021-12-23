@@ -1,0 +1,17 @@
+<h1>モノ一覧</h1>
+<% if params[:keyword] %>
+  <h4>「<%= params[:keyword] %>」の検索結果：<%= @search_category.count %>件</h4>
+<% end %>
+
+<% if params[:category_id] %>
+  <h4>「<%= @category.name %>」に該当するモノ：<%= @search_category.count %>件</h4>
+<% end %>
+
+
+<% @search_category.each do |item| %>
+  <%= link_to item_path(item) do %>
+  <div>
+    <%= item.name %>
+  </div>
+  <% end %>
+<% end %>

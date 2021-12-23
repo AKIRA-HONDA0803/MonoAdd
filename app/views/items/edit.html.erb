@@ -1,8 +1,13 @@
 <h1>モノの情報を編集する</h1>
 <%= form_with model:@item, local:true do |f| %>
 
-<h3>名前</h3>
-<%= f.text_field:name %>
+<h3><%= f.label :name, "名前" %></h3>
+  <%= f.text_field:name %>
+<h3><%= f.label :name, "カテゴリー" %></h3>
+  <%= f.collection_select :category_id, Category.all ,:id, :name %>
+<h3><%= f.label :name, "場所" %></h3>
+  <%= f.collection_select :address_id, Address.all ,:id, :name %>
+
 
 <%= f.submit '更新する' %>
 <% end %>

@@ -1,5 +1,13 @@
 <h1><%= @item.name %>のページ</h1>
 
+<h3>カテゴリー</h3>
+<h3><%= @item.category.name %></h3>
+<h3>場所</h3>
+<h3><%= @item.address.name %></h3>
 
-<%= link_to '編集する', edit_item_path(@item) %>
-<%= link_to '削除する', item_path(@item), method: :delete,data: {confirm: "本当に削除しますか？"} %>
+<%= link_to  edit_item_path(@item) do %>
+<button>編集する</button>
+<% end %><br><br>
+<%= link_to item_path(@item), method: :delete,data: {confirm: "本当に削除しますか？"} do %>
+<button>削除する</button>
+<% end %>
