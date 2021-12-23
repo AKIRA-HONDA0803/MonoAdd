@@ -1,0 +1,5 @@
+<h1><%= @item.name %>のページ</h1>
+
+
+<%= link_to '編集する', edit_item_path(@item) %>
+<%= link_to '削除する', item_path(@item), method: :delete,data: {confirm: "本当に削除しますか？"} %>

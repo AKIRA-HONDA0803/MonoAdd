@@ -1,0 +1,10 @@
+<h1>モノを新しく登録する</h1>
+<%= form_with model:@item, local:true do |f| %>
+
+<h3>名前</h3>
+<%= f.text_field:name %>
+
+<%= f.submit '登録' %>
+
+<% end %>
+

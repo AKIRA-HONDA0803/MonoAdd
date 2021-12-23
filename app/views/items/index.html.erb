@@ -1,0 +1,7 @@
+<h1>モノ一覧</h1>
+<% @items.each do |item| %>
+  <h3>名前</h3>
+  <%= link_to item_path(item)  do %>
+    <%= item.name %>
+  <% end %>
+<% end %>
