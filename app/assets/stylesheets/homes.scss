@@ -2,6 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.heading {
+  border: solid;
+  margin-top: 2% !important;
+  margin: 0 auto;
+  width: 50%;
+  justify-content: center;
+
+  & .heading-title {
+    font-family: 'Hachi Maru Pop', cursive;
+    text-align: center;
+  }
+}
+
 .top-container {
   margin-top: 5%;
   display: flex;
