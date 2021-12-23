@@ -1,1 +1,9 @@
-トップページ
+<div class="top-container">
+  <%= link_to addresses_path, class: "link address-box" do %>
+    <p class="top-title">場所から探す</p>
+  <% end %>
+
+  <%= link_to categories_path, class: "link category-box" do %>
+    <p class="top-title">カテゴリーから探す</p>
+  <% end %>
+</div>
