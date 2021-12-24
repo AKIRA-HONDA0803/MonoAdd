@@ -9,5 +9,5 @@
   <%= f.collection_select :address_id, Address.all ,:id, :name %>
 
 
-<%= f.submit '更新する' %>
+<%= f.submit '更新する', class: "button update" %>
 <% end %>
