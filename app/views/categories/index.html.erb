@@ -1,7 +1,10 @@
-<% @categories.each do |category| %>
-    <div>
+<h1>モノのカテゴリー</h1>
+<div class="category-items">
+  <% @categories.each do |category| %>
+    <div class="category-item">
       <%= link_to search_category_path(category_id: category.id) do %>
         <%= category.name %>
       <% end %>
     </div>
-<% end %>
+  <% end %>
+</div>

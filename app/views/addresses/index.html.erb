@@ -1,7 +1,11 @@
-<% @addresses.each do |address| %>
-    <div>
-      <%= link_to search_address_path(address_id: address.id) do %>
-        <%= address.name %>
-      <% end %>
-    </div>
-<% end %>
+<h1>モノの場所</h1>
+  <div class="address-items">
+    <% @addresses.each do |address| %>
+      <div class="address-item">
+              <span class: "add-name"><%= address.name %></span>
+            <%= link_to search_address_path(address_id: address.id), class: "link" do %><br>
+            <button>全<%= address.item.count %>個</button>
+            <% end %>
+      </div>
+    <% end %>
+  </div>

@@ -1,27 +1,11 @@
 <h1>モノ一覧</h1>
-<p>全<%= @items.count %>個</p>
-<h3>カテゴリー一覧</h3>
-<% @categories.each do |category| %>
-  <%= link_to search_category_path(category_id: category.id), class: "link" do %>
-    <div>
-      <%= category.name %>(<%= category.items.count %>)
+<div class="items">
+  <% @items.each do |item| %>
+    <div class="item-list">
+      <%= link_to item_path(item), class: "link"  do %>
+        <div class="item-list-name"><%= item.name %></div>
+        <div class="item-list-add">#<%= item.address.name %></div>
+      <% end %>
     </div>
-  <% end %>
-<% end %>
-
-<h3>場所一覧</h3>
-<% @addresses.each do |address| %>
-  <%= link_to search_address_path(address_id: address.id), class: "link" do %>
-    <div>
-      <%= address.name %>(<%= address.item.count %>)
-    </div>
-  <% end %>
-<% end %>
-
-
-<% @items.each do |item| %>
-  <h3>名前</h3>
-  <%= link_to item_path(item), class: "link"  do %>
-    <%= item.name %>
-  <% end %>
-<% end %>
+    <% end %>
+</div>

@@ -13,16 +13,9 @@
   </head>
 
   <body>
-    <%= link_to 'トップに戻る', root_path %>
-    <%= link_to 'モノ新規登録', new_item_path %>
-    <%= link_to 'モノ一覧', items_path %>
-    <%= link_to '場所一覧', addresses_path %>
-    <div class= "search-form">
-      <%= form_with url: search_path, method: :get,  local: true do |f|%>
-        <%= f.text_field :keyword, value: @keyword ,placeholder: "モノ検索", class: "search-input" %>
-        <%= f.submit "検索", class: "search-submit" %>
-      <% end %>
-    </div>
+    <header>
+    <%= render 'layouts/header' %>
+    </header>
     <%= yield %>
   </body>
 </html>
