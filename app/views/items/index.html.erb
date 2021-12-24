@@ -5,7 +5,9 @@
       <%= link_to item_path(item), class: "link"  do %>
         <div class="item-list-name"><%= item.name %></div>
         <%= link_to search_address_path(address_id: item.address.id), class: "link" do %>
-        <div class="item-list-add">#<%= item.address.name %></div>
+        <div class="item-list-add">
+          #<%= item.address.name %>
+          </div>
         <% end %>
       <% end %>
     </div>

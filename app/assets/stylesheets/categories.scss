@@ -1,17 +1,24 @@
 // Place all the styles related to the categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "index";
 
-.category-items {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
+.category-title {
+  @extend .title;
+}
 
-  & .category-item {
-  width: calc(25% - 40px);
-  height: 125px;
-  margin: 10px;
-  padding: 10px;
-  background-color: gray;
+.categories {
+  @extend .models;
+
+  & .category-list {
+    @extend .model-list;
+  }
+
+  & span {
+    @extend .model-name;
+  }
+
+  & :hover {
+    // opacity: 0.3;
   }
 }

@@ -11,11 +11,14 @@
   <h4>「<%= @address.name %>」にあるモノ：<%= @search_category.count %>件</h4>
 <% end %>
 
-
-<% @search_category.each do |item| %>
-  <%= link_to item_path(item) do %>
-  <div>
-    <%= item.name %>
-  </div>
+<div class="category-items">
+  <% @search_category.each do |item| %>
+    <div class="category-item">
+      <%= link_to item_path(item) do %>
+      <div>
+        <%= item.name %>
+      </div>
+      <% end %>
+    </div>
   <% end %>
-<% end %>
+</div>

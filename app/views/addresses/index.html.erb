@@ -1,11 +1,12 @@
-<h1>モノの場所</h1>
-  <div class="address-items">
-    <% @addresses.each do |address| %>
-      <div class="address-item">
-              <span class: "add-name"><%= address.name %></span>
-            <%= link_to search_address_path(address_id: address.id), class: "link" do %><br>
-            <button>全<%= address.item.count %>個</button>
-            <% end %>
-      </div>
-    <% end %>
+<h1 class="address-title">モノの場所</h1>
+  <div class="addresses">
+    <div>
+      <% @addresses.each do |address| %>
+        <%= link_to search_address_path(address_id: address.id), class: "link" do %>
+          <div class="address-list">
+            <span>▶<%= address.name %>(<%= address.item.count %>)</span>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
