@@ -3,22 +3,41 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "index";
 
+ /*indexのレイアウト*/
 .category-title {
   @extend .title;
 }
-
 .categories {
   @extend .models;
 
   & .category-list {
     @extend .model-list;
   }
-
   & span {
     @extend .model-name;
   }
-
   & :hover {
     // opacity: 0.3;
+  }
+}
+
+/*searchのレイアウト*/
+.search-title {
+  // @extend .title;
+}
+
+.search-items {
+  @extend .models2;
+
+  & .search-item-list {
+    @extend .model-lists2;
+
+    & .search-item-name {
+      @extend .model-name2;
+    }
+
+    & .search-item-add {
+      @extend .model-address;
+    }
   }
 }

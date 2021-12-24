@@ -1,4 +1,4 @@
-<h1>モノ一覧</h1>
+<h1 class="search-title">モノ一覧</h1>
 <% if params[:keyword] %>
   <h4>「<%= params[:keyword] %>」の検索結果：<%= @search_category.count %>件</h4>
 <% end %>
@@ -11,13 +11,18 @@
   <h4>「<%= @address.name %>」にあるモノ：<%= @search_category.count %>件</h4>
 <% end %>
 
-<div class="category-items">
+<div class="search-items">
   <% @search_category.each do |item| %>
-    <div class="category-item">
-      <%= link_to item_path(item) do %>
-      <div>
-        <%= item.name %>
-      </div>
+    <div class="search-item-list">
+      <%= link_to item_path(item), class: "link" do %>
+        <div class="search-item-name">
+          <%= item.name %>
+        </div>
+        <%= link_to search_address_path(address_id: item.address.id), class: "link" do %>
+          <div class="search-item-add">
+            #<%= item.address.name %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   <% end %>
