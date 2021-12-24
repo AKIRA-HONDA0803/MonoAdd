@@ -10,3 +10,12 @@
       <% end %>
     </div>
   </div>
+
+
+
+<h1>場所を新しく登録する</h1>
+<%= form_with model:@address, local:true do |f| %>
+  <h3><%= f.label :name, "場所の名前" %></h3>
+  <%= f.text_field:name %>
+  <%= f.submit '登録' %>
+<% end %>

@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   resources :items, only: [:new, :create, :index, :show, :edit, :update, :destroy]
 
-  resources :addresses, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+  resources :addresses, only: [:create, :index, :show, :edit, :update, :destroy]
 
-  resources :categories, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+  resources :categories, only: [:create, :index, :show, :edit, :update, :destroy]
 
   get "search" => 'categories#search'
   get "search_category" => "categories#search_category"
