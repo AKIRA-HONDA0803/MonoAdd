@@ -15,5 +15,5 @@
 <%= form_with model:@category, local:true do |f| %>
   <h3><%= f.label :name, "カテゴリーの名前" %></h3>
   <%= f.text_field:name %>
-  <%= f.submit '登録' %>
+  <%= f.submit '登録', class: "button create" %>
 <% end %>

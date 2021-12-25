@@ -22,3 +22,34 @@
     }
   }
 }
+
+/*new.html.erb*/
+.new-item-title {
+  @extend .title;
+}
+
+.new-item-form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  & .name-form {
+    & :hover{
+      background-color: #EEFFFF;
+    }
+  }
+
+  & .category-form {
+    & :hover{
+      background-color: #EEFFFF;
+      cursor: pointer;
+    }
+  }
+
+  & .address-form {
+    & :hover{
+      background-color: #EEFFFF;
+      cursor: pointer;
+    }
+  }
+}

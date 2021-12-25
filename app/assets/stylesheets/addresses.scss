@@ -18,3 +18,11 @@
     @extend .model-name;
   }
 }
+
+.side {
+  // position: absolute;
+  // display: none;
+  position: fixed;
+  top: 120px;
+  left: 50px;
+}

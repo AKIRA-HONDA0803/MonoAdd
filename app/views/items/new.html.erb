@@ -1,14 +1,21 @@
-<h1>モノを新しく登録する</h1>
-<%= form_with model:@item, local:true do |f| %>
+<h1 class="new-item-title">モノを新しく登録する</h1>
+<div class="new-item-form">
+  <%= form_with model:@item, local:true do |f| %>
+    <div class="name-form">
+      <%= f.label :name, "名前" %><br>
+      <%= f.text_field:name, class: "input-field" %>
+    </div>
 
-<h3><%= f.label :name, "名前" %></h3>
-  <%= f.text_field:name %>
-<h3><%= f.label :name, "カテゴリー" %></h3>
-  <%= f.collection_select :category_id, Category.all ,:id, :name %>
-<h3><%= f.label :name, "場所" %></h3>
-  <%= f.collection_select :address_id, Address.all ,:id, :name %>
+    <div class="category-form">
+      <%= f.label :name, "カテゴリー" %><br>
+      <%= f.collection_select :category_id, Category.all ,:id, :name, class: "select-field" %>
+    </div>
 
-  <%= f.submit '登録' %>
-
-<% end %>
+    <div class="address-form">
+      <%= f.label :name, "場所" %><br>
+      <%= f.collection_select :address_id, Address.all ,:id, :name, class: "select-field" %>
+    </div>
+      <%= f.submit '登録', class: "button create" %>
+  <% end %>
+</div>
 
