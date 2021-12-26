@@ -24,6 +24,7 @@ header {
   background-color: red;
   border: solid;
   border-color: green #32a1ce;
+  z-index: 100;
 
   & .search-form {
     text-align: center;

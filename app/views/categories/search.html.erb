@@ -15,15 +15,25 @@
   <% @search_category.each do |item| %>
     <div class="search-item-list">
       <%= link_to item_path(item), class: "link" do %>
-        <div class="search-item-name">
-          <%= item.name %>
-        </div>
+        <div class="item-picture">
+          <% if item.picture.attached? %>
+            <%= image_tag item.picture,class: "picture" %>
+        　<% end %>
+      　</div>
         <%= link_to search_address_path(address_id: item.address.id), class: "link" do %>
           <div class="search-item-add">
             #<%= item.address.name %>
           </div>
         <% end %>
+        <%= link_to search_category_path(category_id: item.category.id), class: "link" do %>
+          <div class="search-item-category">
+            #<%= item.category.name %>
+          </div>
+        <% end %>
       <% end %>
+      <div class="search-item-name">
+          <%= item.name %>
+        </div>
     </div>
   <% end %>
 </div>

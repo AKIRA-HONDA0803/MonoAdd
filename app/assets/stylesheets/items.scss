@@ -20,6 +20,14 @@
     & .item-add {
       @extend .model-address;
     }
+
+    & .item-category {
+      @extend .model_category;
+    }
+
+    & .item-picture {
+      @extend .model-picture;
+    }
   }
 }
 
