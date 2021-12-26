@@ -1,0 +1,31 @@
+　<% if @item.picture.attached? %>
+    <%= image_tag @item.picture, size: "450x450" %>
+　<% end %><br>
+<div class="picture-form">
+  <%= f.label :picture, "画像をアップロード", class: "input-file" do %>
+    <%= f.file_field :picture,class: "image_form" %>
+   <!--ファイルを選択-->
+  <% end %>
+  <!--<p>選択されていません</p>-->
+</div>
+<div class="name-form">
+  <%= f.label :name, "名前" %>
+  <%= f.text_field:name, class: "input-field" %>
+</div>
+
+<div class="category-form">
+  <%= f.label :name, "カテゴリー" %>
+  <%= f.collection_select :category_id, Category.all ,:id, :name, class: "select-field" %>
+</div>
+
+<div class="address-form">
+  <%= f.label :name, "場所" %>
+  <%= f.collection_select :address_id, Address.all ,:id, :name, class: "select-field" %>
+</div>
+
+
+<% if local_assigns[:edit_page].present? %>
+  <%= f.submit '更新する', class: "button update" %>
+<% else %>
+  <%= f.submit '登録', class: "button create" %>
+<% end %>
