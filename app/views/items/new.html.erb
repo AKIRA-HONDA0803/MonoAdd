@@ -15,6 +15,7 @@
       <%= f.label :name, "場所" %><br>
       <%= f.collection_select :address_id, Address.all ,:id, :name, class: "select-field" %>
     </div>
+      <%= f.file_field :picture, placeholder:"画像" %>
       <%= f.submit '登録', class: "button create" %>
   <% end %>
 </div>
