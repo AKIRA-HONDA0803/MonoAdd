@@ -10,8 +10,18 @@
   transition: all 0.3s;
   color: black;
 
+  &.sub {
+    // margin: 0;
+  // margin-left: 50px;
+    // position: absolute;
+    // right: 0;
+    // bottom: 0;
+    // display: flex;
+    // justify-content: right;
+  }
+
   &.edit:hover {
-    background-color: green;
+    background-color: green !important;
     color: white;
     box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
   }

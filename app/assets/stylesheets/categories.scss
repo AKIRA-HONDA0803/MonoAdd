@@ -16,8 +16,11 @@
   & span {
     @extend .model-name;
   }
-  & :hover {
-    // opacity: 0.3;
+  & :nth-child(n) {
+    & :hover {
+    // opacity: 0.8;
+    background-color: #EEFFFF;
+    }
   }
 }
 
@@ -45,3 +48,4 @@
     }
   }
 }
+

@@ -4,13 +4,24 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
 
+  def show
+    @category = Category.find(params[:id])
+  end
+
   def create
     @category = Category.new(category_params)
     @category.save
     redirect_to categories_path
   end
 
+  def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+    redirect_to categories_path
+  end
+
   def edit
+    @category = Category.find(params[:id])
   end
 
   def search
@@ -38,6 +49,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :limit)
   end
 end

@@ -16,6 +16,9 @@
     <header>
     <%= render 'layouts/header' %>
     </header>
+    <div class="notification">
+<%= flash[:notice] %>
+</div>
     <%= yield %>
   </body>
 </html>

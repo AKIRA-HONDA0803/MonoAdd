@@ -1,2 +1,6 @@
-<h1>Categories#edit</h1>
-<p>Find me in app/views/categories/edit.html.erb</p>
+<h1><%= @category.name %></h1>
+<p>上限数：<%= @category.limit %></p>
+
+<%= link_to category_path(@category), method: :delete,data: {confirm: "本当に削除しますか？"} do %>
+    <span class="button delete">削除する</span>
+  <% end %>
