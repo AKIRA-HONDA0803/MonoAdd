@@ -12,8 +12,15 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.save
-    redirect_to items_path
+    @category = Category.all
+    @limit_category = @category.find(@item.category_id)
+    if @limit_category.items.count >= @limit_category.limit
+      flash[:notice] = "⚠︎#{@limit_category.name}の登録上限です。"
+      redirect_to new_item_path
+    else
+      @item.save
+      redirect_to items_path
+    end
   end
 
   def edit

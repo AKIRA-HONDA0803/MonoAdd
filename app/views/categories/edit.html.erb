@@ -1,2 +1,14 @@
-<h1>Categories#edit</h1>
-<p>Find me in app/views/categories/edit.html.erb</p>
+<h1 class="category-title">カテゴリー名の編集</h1>
+<div class="category-form">
+  <div>
+    <%= form_with model:@category, local:true do |f| %>
+      <h3><%= f.label :name, "カテゴリーの名前" %></h3>
+      <%= f.text_field:name, class: "input-field" %>
+      <h3><%=f.label :limit, "上限数" %></h3>
+      <p>現在の上限数：<%= @category.limit %></p>
+      <%= f.select :limit, options_for_select((1..30).to_a), class: "select-field" %>
+      <%= f.submit '更新', class: "button update" %>
+    <% end %>
+    <%= link_to "削除する", category_path(@category), method: :delete,data: {confirm: "本当に削除しますか？"}, class: "button delete link" %>
+  </div>
+</div>

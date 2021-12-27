@@ -4,14 +4,42 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
 
+  def show
+    @category = Category.find(params[:id])
+  end
+
   def create
     @category = Category.new(category_params)
     @category.save
     redirect_to categories_path
   end
 
-  def edit
+  def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+    redirect_to categories_path
   end
+
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    @item = Item.all
+    @items = @item.where(category_id: params[:id])
+    @limit = params[:limit]
+
+    @category.update(category_params)
+    #そもそもデータをアップデートできないようにすべき？
+    if @items.count >= @category.limit
+      flash[:notice] = "#{@category.name}に該当するモノは#{@items.count}です。登録上限です。"
+      redirect_to edit_category_path(@category)
+    else
+      redirect_to categories_path
+    end
+  end
+
 
   def search
     @categories = Category.all
@@ -38,6 +66,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :limit)
   end
 end
