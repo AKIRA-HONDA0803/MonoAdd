@@ -18,7 +18,6 @@ class ItemsController < ApplicationController
       flash[:notice] = "⚠︎#{@limit_category.name}の登録上限です。"
       redirect_to new_item_path
     else
-      # byebug
       @item.save
       redirect_to items_path
     end

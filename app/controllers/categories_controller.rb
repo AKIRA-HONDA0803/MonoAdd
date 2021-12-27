@@ -24,6 +24,23 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
 
+  def update
+    @category = Category.find(params[:id])
+    @item = Item.all
+    @items = @item.where(category_id: params[:id])
+    @limit = params[:limit]
+
+    @category.update(category_params)
+    #そもそもデータをアップデートできないようにすべき？
+    if @items.count >= @category.limit
+      flash[:notice] = "#{@category.name}に該当するモノは#{@items.count}です。登録上限です。"
+      redirect_to edit_category_path(@category)
+    else
+      redirect_to categories_path
+    end
+  end
+
+
   def search
     @categories = Category.all
     @search_category = Item.search(params[:keyword]).reverse_order
