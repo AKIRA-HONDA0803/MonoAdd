@@ -22,6 +22,8 @@ class CategoriesController < ApplicationController
 
   def edit
     @category = Category.find(params[:id])
+    items = Item.all
+    @items = items.where(category_id: params[:id])
   end
 
   def update
