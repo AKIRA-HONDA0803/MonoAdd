@@ -32,8 +32,10 @@ class CategoriesController < ApplicationController
 
     @category.update(category_params)
     #そもそもデータをアップデートできないようにすべき？
+    # →一度更新して、下記条件下にItemの個数を上限に設定
     if @items.count >= @category.limit
       flash[:notice] = "#{@category.name}に該当するモノは#{@items.count}です。登録上限です。"
+      @category.update(limit: @items.count)
       redirect_to edit_category_path(@category)
     else
       redirect_to categories_path
