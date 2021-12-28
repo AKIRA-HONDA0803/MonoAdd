@@ -17,6 +17,11 @@
   & span {
     @extend .model-name;
   }
+  & :nth-child(n) {
+    & :hover {
+    background-color: #EEFFFF;
+    }
+  }
 }
 
 .side {
