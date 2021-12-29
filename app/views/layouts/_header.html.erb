@@ -1,9 +1,16 @@
+<nav>
 <div class="nav-menu">
-<%= link_to 'トップに戻る', root_path %>
+<div>
+<%= link_to root_path, class: "favicon" do %>
+  <img src=<%= asset_path('favicon.ico') %> width="70" height="70">
+<% end %>
+</div>
+<div>
 <%= link_to 'モノ新規登録', new_item_path %>
 <%= link_to 'モノ一覧', items_path %>
 <%= link_to '場所一覧', addresses_path %>
 <%= link_to 'カテゴリー一覧', categories_path %>
+</div>
 </div>
 <div class= "search-form">
   <%= form_with url: search_path, method: :get,  local: true do |f|%>
@@ -11,3 +18,4 @@
     <%= f.submit "検索", class: "search-submit" %>
   <% end %>
 </div>
+</nav>
