@@ -12,7 +12,6 @@
   </div>
 </div>
 
-
 <div class="side">
   <%= form_with model:@address, local:true do |f| %>
     <h3><%= f.label :name, "場所の名前" %></h3>
@@ -20,3 +19,4 @@
     <%= f.submit '登録', class: "button create" %>
   <% end %>
 </div>
+

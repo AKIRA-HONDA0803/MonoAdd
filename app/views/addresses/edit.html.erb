@@ -1,15 +1,22 @@
-<h1 class="category-title">場所の名前の編集</h1>
-<div class="category-form">
+<h1 class="address-title">場所の名前の編集</h1>
+<div class="address-edit-form">
   <div>
     <%= form_with model:@address, local:true do |f| %>
-      <h3><%= f.label :name, "場所の名前" %></h3>
-      <%= f.text_field:name, placeholder: "場所の名前", class: "input-field" %>
-      <h3><%=f.label :limit, "上限数" %></h3>
-      <p>現在の上限数：<%= @address.limit %></p>
-      <p>この場所に属するモノの数：<%= @items.count %></p>
-      <%= f.select :limit, options_for_select((1..30).to_a), class: "select-field" %>
+      <div class="name-form">
+        <%= f.label :name, "場所の名前" %>
+        <%= f.text_field:name, placeholder: "場所の名前", class: "input-field" %>
+      </div><br>
+
+      <div class="limit-form">
+        <%=f.label :limit, "上限数" %><br>
+        <%= f.select :limit, options_for_select((1..30).to_a), class: "select-field" %>
+        現在の上限数：<%= @address.limit %><br>
+        この場所に属するモノの数：<%= @items.count %>
+      </div><br>
       <%= f.submit '更新', class: "button update" %>
     <% end %>
-    <%= link_to "削除する", address_path(@address), method: :delete,data: {confirm: "本当に削除しますか？"}, class: "button delete link" %>
+    <%= link_to address_path(@address), method: :delete,data: {confirm: "本当に削除しますか？"} do %>
+     <button class="button delete">削除する</button>
+    <% end %>
   </div>
 </div>

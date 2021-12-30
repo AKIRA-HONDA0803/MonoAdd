@@ -1,22 +1,7 @@
 <h1 class="new-item-title">モノを新しく登録する</h1>
 <div class="new-item-form">
   <%= form_with model:@item, local:true do |f| %>
-    <div class="name-form">
-      <%= f.label :name, "名前" %><br>
-      <%= f.text_field:name, class: "input-field" %>
-    </div>
-
-    <div class="category-form">
-      <%= f.label :name, "カテゴリー" %><br>
-      <%= f.collection_select :category_id, Category.all ,:id, :name, class: "select-field" %>
-    </div>
-
-    <div class="address-form">
-      <%= f.label :name, "場所" %><br>
-      <%= f.collection_select :address_id, Address.all ,:id, :name, class: "select-field" %>
-    </div>
-      <%= f.file_field :picture, placeholder:"画像" %>
-      <%= f.submit '登録', class: "button create" %>
+    <%= render :partial => 'form', :locals => {:f => f, :edit_page => true} %>
   <% end %>
 </div>
 

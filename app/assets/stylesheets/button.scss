@@ -9,28 +9,45 @@
   cursor: pointer;
   transition: all 0.3s;
   color: black;
+  width: 100% ;
 
-  &.edit:hover {
+  &.edit {
     background-color: green !important;
     color: white;
-    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+    &:hover {
+    @extend .button-hover;
+    }
   }
 
-  &.delete:hover {
+  &.delete {
     background-color: red;
     color: white;
-    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+
+    &:hover {
+    @extend .button-hover;
+    }
   }
 
-  &.update:hover {
+  &.update {
     background-color: blue;
     color: white;
-    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+
+    &:hover {
+    @extend .button-hover;
+    }
   }
 
-  &.create:hover {
+  &.create {
     background-color: lightgreen;
     color: white;
-    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+
+    &:hover {
+    @extend .button-hover;
+    }
   }
+}
+
+.button-hover {
+  opacity: 0.6;
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
 }

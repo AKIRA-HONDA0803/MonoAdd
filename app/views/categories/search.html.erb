@@ -18,6 +18,8 @@
         <div class="item-picture">
           <% if item.picture.attached? %>
             <%= image_tag item.picture,class: "picture" %>
+          <% else %>
+            <%= image_tag 'favicon.ico', class: "picture"  %>
         　<% end %>
       　</div>
         <%= link_to search_address_path(address_id: item.address.id), class: "link" do %>

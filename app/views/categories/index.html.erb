@@ -12,9 +12,10 @@
   </div>
 </div>
 
-<h1>カテゴリーを新しく登録する</h1>
-<%= form_with model:@category, local:true do |f| %>
-  <h3><%= f.label :name, "カテゴリーの名前" %></h3>
-  <%= f.text_field:name %>
-  <%= f.submit '登録', class: "button create" %>
-<% end %>
+<div class="side">
+  <%= form_with model:@category, local:true do |f| %>
+    <h3><%= f.label :name, "カテゴリーの名前" %></h3>
+    <%= f.text_field:name, class: "input-field" %>
+    <%= f.submit '登録', class: "button create" %>
+  <% end %>
+</div>

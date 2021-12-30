@@ -1,15 +1,22 @@
 <h1 class="category-title">カテゴリー名の編集</h1>
-<div class="category-form">
+<div class="category-edit-form">
   <div>
     <%= form_with model:@category, local:true do |f| %>
-      <h3><%= f.label :name, "カテゴリーの名前" %></h3>
-      <%= f.text_field:name, placeholder: "カテゴリー名", class: "input-field" %>
-      <h3><%=f.label :limit, "上限数" %></h3>
-      <p>現在の上限数：<%= @category.limit %></p>
-      <p>このカテゴリーに属するモノの数：<%= @items.count %></p>
-      <%= f.select :limit, options_for_select((1..30).to_a), class: "select-field" %>
+      <div class="name-form">
+        <%= f.label :name, "カテゴリーの名前" %>
+        <%= f.text_field:name, placeholder: "カテゴリー名", class: "input-field" %>
+      </div><br>
+
+      <div class="limit-form">
+        <%=f.label :limit, "上限数" %><br>
+        <%= f.select :limit, options_for_select((1..30).to_a), class: "select-field" %>
+        現在の上限数：<%= @category.limit %><br>
+        このカテゴリーに属するモノの数：<%= @items.count %>
+      </div><br>
       <%= f.submit '更新', class: "button update" %>
     <% end %>
-    <%= link_to "削除する", category_path(@category), method: :delete,data: {confirm: "本当に削除しますか？"}, class: "button delete link" %>
+    <%= link_to category_path(@category), method: :delete,data: {confirm: "本当に削除しますか？"} do %>
+      <button class="button delete">削除する</button>
+    <% end %>
   </div>
 </div>

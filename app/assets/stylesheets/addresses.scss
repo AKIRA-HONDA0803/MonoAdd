@@ -31,3 +31,21 @@
   top: 120px;
   left: 50px;
 }
+
+.address-edit-form {
+  display: flex;
+  justify-content: center;
+
+  & .name-form {
+    & :hover{
+      background-color: #EEFFFF;
+    }
+  }
+
+  & .limit-form {
+    & :hover{
+      background-color: #EEFFFF;
+      cursor: pointer;
+    }
+  }
+}

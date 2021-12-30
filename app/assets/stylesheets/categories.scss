@@ -48,7 +48,20 @@
   }
 }
 
-.category-form {
+.category-edit-form {
   display: flex;
   justify-content: center;
+
+  & .name-form {
+    & :hover{
+      background-color: #EEFFFF;
+    }
+  }
+
+  & .limit-form {
+    & :hover{
+      background-color: #EEFFFF;
+      cursor: pointer;
+    }
+  }
 }
