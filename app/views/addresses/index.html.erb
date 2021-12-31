@@ -7,7 +7,9 @@
           <span>▶<%= address.name %>(<%= address.item.count %>)</span>
         </div>
       <% end %>
-      <%= link_to "編集する", edit_address_path(address), class: "link button edit" %>
+      <%= link_to edit_address_path(address) do %>
+        <button class="button edit">編集する</button>
+      <% end %>
     <% end %>
   </div>
 </div>

@@ -7,7 +7,9 @@
           <span>▶︎<%= category.name %>(<%= category.items.count %>)</span>
         </div>
       <% end %>
-      <%= link_to "編集する", edit_category_path(category), class: "link button edit" %>
+      <%= link_to edit_category_path(category) do %>
+        <button class="button edit">編集する</button>
+      <% end %>
     <% end %>
   </div>
 </div>
