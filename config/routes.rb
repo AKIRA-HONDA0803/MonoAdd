@@ -12,4 +12,9 @@ Rails.application.routes.draw do
   get "search_category" => "categories#search_category"
   get "search_address" => "categories#search_address"
 
+  resources :users
+  get '/signup', to: 'users#new'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 end

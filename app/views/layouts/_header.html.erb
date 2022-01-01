@@ -6,10 +6,16 @@
 <% end %>
 </div>
 <div>
+<% if logged_in? %>
 <%= link_to 'モノ新規登録', new_item_path %>
 <%= link_to 'モノ一覧', items_path %>
 <%= link_to '場所一覧', addresses_path %>
 <%= link_to 'カテゴリー一覧', categories_path %>
+<%= link_to "ログアウト", logout_path, method: :delete %>
+<% else %>
+<%= link_to 'ユーザー新規登録', new_user_path %>
+<%= link_to 'ログイン', login_path %>
+<% end %>
 </div>
 </div>
 <div class= "search-form">
