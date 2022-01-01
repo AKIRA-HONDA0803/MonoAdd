@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   validates :name, presence: true
   belongs_to :category
   belongs_to :address
+  belongs_to :user
   has_one_attached :picture
 
   def self.search(keyword)
