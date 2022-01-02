@@ -1,27 +1,25 @@
 <nav>
-<div class="nav-menu">
-<div>
-<%= link_to root_path, class: "favicon" do %>
-  <img src=<%= asset_path('favicon.ico') %> width="70" height="70">
-<% end %>
-</div>
-<div>
-<% if logged_in? %>
-<%= link_to 'モノ新規登録', new_item_path %>
-<%= link_to 'モノ一覧', items_path %>
-<%= link_to '場所一覧', addresses_path %>
-<%= link_to 'カテゴリー一覧', categories_path %>
-<%= link_to "ログアウト", logout_path, method: :delete %>
-<% else %>
-<%= link_to 'ユーザー新規登録', new_user_path %>
-<%= link_to 'ログイン', login_path %>
-<% end %>
-</div>
-</div>
-<div class= "search-form">
-  <%= form_with url: search_path, method: :get,  local: true do |f|%>
-    <%= f.text_field :keyword, value: @keyword ,placeholder: "モノ検索", class: "search-input" %>
-    <%= f.submit "検索", class: "search-submit" %>
-  <% end %>
-</div>
+    <div>
+      <%= link_to root_path, class: "link" do %>
+      　<%= image_tag 'favicon.ico', class: "favicon" %>
+      <% end %>
+      <div class= "search-form">
+        <%= form_with url: search_path, method: :get,  local: true do |f|%>
+          <%= f.text_field :keyword, value: @keyword ,placeholder: "モノ検索", class: "search-input" %>
+          <%= f.submit "検索", class: "search-submit" %>
+        <% end %>
+      </div>
+    <!--<div class="nav-menu">-->
+    <!--</div>-->
+      <% if logged_in? %>
+        <%= link_to 'モノ新規登録', new_item_path, class: "link" %>
+        <%= link_to 'モノ一覧', items_path, class: "link" %>
+        <%= link_to '場所一覧', addresses_path, class: "link" %>
+        <%= link_to 'カテゴリー一覧', categories_path, class: "link" %>
+        <%= link_to "ログアウト", logout_path, method: :delete, class: "link" %>
+      <% else %>
+        <%= link_to 'ユーザー新規登録', new_user_path, class: "link" %>
+        <%= link_to 'ログイン', login_path, class: "link" %>
+      <% end %>
+    </div>
 </nav>
