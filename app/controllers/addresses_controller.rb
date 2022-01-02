@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
   def index
-    @addresses = Address.all
+    @addresses = Address.where(user_id: current_user.id)
     @address = Address.new
   end
 
@@ -33,12 +33,18 @@ class AddressesController < ApplicationController
     end
   end
 
+  def destroy
+    @address = Address.find(params[:id])
+    @address.destroy
+    redirect_to addresses_path
+  end
+
   def show
   end
 
   private
 
   def address_params
-    params.require(:address).permit(:name, :limit)
+    params.require(:address).permit(:name, :limit, :user_id)
   end
 end

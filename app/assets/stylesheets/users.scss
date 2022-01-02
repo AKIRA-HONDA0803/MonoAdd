@@ -1,0 +1,58 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "index";
+
+.sign_up-title{
+  @extend .title;
+}
+
+.sign_up-form {
+  display: flex;
+  justify-content: center;
+
+  & .name-form {
+    & :hover{
+      background-color: #EEFFFF;
+    }
+  }
+
+  & .mail-form {
+    & :hover{
+      background-color: #EEFFFF;
+    }
+  }
+
+  & .password-form {
+    & :hover{
+      background-color: #EEFFFF;
+    }
+  }
+
+  & .password_confirmation-form {
+    & :hover{
+      background-color: #EEFFFF;
+    }
+  }
+}
+
+.log_in-title {
+  @extend .title;
+}
+
+.log_in-form {
+  display: flex;
+  justify-content: center;
+
+  & .mail-form {
+    & :hover{
+      background-color: #EEFFFF;
+    }
+  }
+
+  & .password-form {
+    & :hover{
+      background-color: #EEFFFF;
+    }
+  }
+}

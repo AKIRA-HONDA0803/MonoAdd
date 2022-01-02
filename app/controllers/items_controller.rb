@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.all
+    @items = Item.where(user_id: current_user.id)
     @categories = Category.all
     @addresses = Address.all
   end
@@ -12,10 +12,16 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @category = Category.all
+    @category = Category.where(user_id: current_user.id)
+    @address = Address.where(user_id: current_user.id)
     @limit_category = @category.find(@item.category_id)
+    @limit_address = @address.find(@item.address_id)
+
     if @limit_category.items.count >= @limit_category.limit
-      flash[:notice] = "⚠︎#{@limit_category.name}の登録上限です。"
+      flash[:notice] = "⚠カテゴリー：︎#{@limit_category.name}の登録上限です。"
+      redirect_to new_item_path
+    elsif @limit_address.item.count >= @limit_address.limit
+      flash[:notice] = "⚠場所：︎#{@limit_address.name}の登録上限です。"
       redirect_to new_item_path
     else
       @item.save
@@ -46,7 +52,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :address_id, :category_id, :picture)
+    params.require(:item).permit(:name, :address_id, :category_id, :picture, :user_id)
   end
 
 end

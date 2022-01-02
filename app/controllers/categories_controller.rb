@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.all
+    @categories = Category.where(user_id: current_user.id)
     @category = Category.new
   end
 
@@ -70,6 +70,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name, :limit)
+    params.require(:category).permit(:name, :limit, :user_id)
   end
 end

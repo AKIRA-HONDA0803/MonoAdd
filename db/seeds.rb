@@ -5,22 +5,35 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.create!(
+  {
+    name: "サンプルユーザー",
+    email: "aaa@test.co.jp",
+    password: "aaaaaaaaa"
+  }
+  )
+
 Address.create!(
   [
     {
-      name: '玄関'
+      name: '玄関',
+      user_id: 1
     },
     {
-      name: '洗面化粧台'
+      name: '洗面化粧台',
+      user_id: 1
     },
     {
-      name: 'キッチン'
+      name: 'キッチン',
+      user_id: 1
     },
     {
-      name: 'クローゼット'
+      name: 'クローゼット',
+      user_id: 1
     },
     {
-      name: 'リビング'
+      name: 'リビング',
+      user_id: 1
     }
   ]
 )
@@ -28,19 +41,25 @@ Address.create!(
 Category.create!(
   [
     {
-      name: '衣服・靴'
+      name: '衣服・靴',
+      user_id: 1
     },
     {
-      name: 'インテリア・小物'
+      name: 'インテリア・小物',
+      user_id: 1
     },
     {
-      name: '本'
+      name: '本',
+      user_id: 1
     },
     {
-      name: 'おもちゃ・ホビー・グッズ'
+      name: 'おもちゃ・ホビー・グッズ',
+      user_id: 1
     },
     {
-      name: '家電'
+      name: '家電',
+      user_id: 1
     }
   ]
 )
+
