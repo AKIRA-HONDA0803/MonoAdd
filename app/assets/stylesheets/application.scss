@@ -18,7 +18,7 @@
 header {
   position: fixed;
   width: 100%;
-  height: 100px;
+  height: 120px;
   box-sizing: border-box;
   top: 0;
   left: 0;
@@ -31,6 +31,7 @@ header {
   position: absolute;
   width: 70px;
   height: 70px;
+  top: 15%;
 }
 
   & .search-form {
@@ -60,7 +61,7 @@ header {
 }
 
 body {
-  padding-top: 90px;
+  padding-top: 100px;
   margin: 0;
   background-color: #F8F8FF;
 }
@@ -100,4 +101,32 @@ select {
   background-color: #FF97C2;
   text-align: center;
   width: 100%;
+}
+
+.logout_case {
+  position: absolute;
+  right: 5%;
+  display: flex;
+
+   & :nth-child(n) {
+     color: black;
+     padding: 15px;
+    & :hover {
+    background-color: #EEFFFF;
+    }
+  }
+}
+
+.login_case {
+  position: absolute;
+  right: 29%;
+  display: flex;
+
+  & :nth-child(n) {
+     color: black;
+     padding: 15px;
+    & :hover {
+    background-color: #EEFFFF;
+    }
+  }
 }
