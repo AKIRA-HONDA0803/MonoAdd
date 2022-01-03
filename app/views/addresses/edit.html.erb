@@ -10,8 +10,8 @@
       <div class="limit-form">
         <%=f.label :limit, "上限数" %><br>
         <%= f.select :limit, options_for_select((1..30).to_a), class: "select-field" %>
-        現在の上限数：<%= @address.limit %><br>
-        この場所に属するモノの数：<%= @items.count %>
+        この場所の上限数&nbsp; &nbsp;：<%= @address.limit %><br>
+        この場所にあるモノ：<%= @items.count %>
       </div><br>
       <%= f.submit '更新', class: "button update" %>
     <% end %>

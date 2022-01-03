@@ -29,8 +29,8 @@ class AddressesController < ApplicationController
 
     @address.update(address_params)
 
-    if @items.count >= @address.limit
-      flash[:alert] = "#{@address.name}に登録されているモノは#{@items.count}個です。"
+    if @items.count > @address.limit
+      flash[:danger] = "#{@address.name}に登録されているモノは#{@items.count}個です。"
       @address.update(limit: @items.count)
       redirect_to edit_address_path(@address)
     else

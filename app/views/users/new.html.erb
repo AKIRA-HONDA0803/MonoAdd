@@ -2,12 +2,6 @@
 <div class="sign_up-form">
   <div>
     <%= form_with model:@user, local: true do |f| %>
-      <%#= render 'shared/error_messages' %>
-      <div class="name-form">
-      <%= f.label :name, "ユーザー名" %>
-      <%= f.text_field :name, class: "input-field" %>
-      </div><br>
-
       <div class="mail-form">
       <%= f.label :email, "メールアドレス" %>
       <%= f.email_field :email, class: "input-field" %>

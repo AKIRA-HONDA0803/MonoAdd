@@ -3,15 +3,15 @@
   <div>
     <%= form_with model:@category, local:true do |f| %>
       <div class="name-form">
-        <%= f.label :name, "カテゴリーの名前" %>
+        <%= f.label :name, "カテゴリー名" %>
         <%= f.text_field:name, placeholder: "カテゴリー名", class: "input-field" %>
       </div><br>
 
       <div class="limit-form">
         <%=f.label :limit, "上限数" %><br>
         <%= f.select :limit, options_for_select((1..30).to_a), class: "select-field" %>
-        現在の上限数：<%= @category.limit %><br>
-        このカテゴリーに属するモノの数：<%= @items.count %>
+        このカテゴリーの上限数&nbsp; &nbsp;：<%= @category.limit %><br>
+        このカテゴリーにあるモノ：<%= @items.count %>
       </div><br>
       <%= f.submit '更新', class: "button update" %>
     <% end %>

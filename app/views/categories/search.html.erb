@@ -1,14 +1,14 @@
 <h1 class="search-title">モノ一覧</h1>
 <% if params[:keyword] %>
-  <h4>「<%= params[:keyword] %>」の検索結果：<%= @search_category.count %>件</h4>
+  <h4 class="search-title">「<%= params[:keyword] %>」の検索結果：<%= @search_category.count %>件</h4>
 <% end %>
 
 <% if params[:category_id] %>
-  <h4>「<%= @category.name %>」に該当するモノ：<%= @search_category.count %>件</h4>
+  <h4 class="search-title">「<%= @category.name %>」に登録されているモノ：<%= @search_category.count %>個</h4>
 <% end %>
 
 <% if params[:address_id] %>
-  <h4>「<%= @address.name %>」にあるモノ：<%= @search_category.count %>件</h4>
+  <h4 class="search-title">「<%= @address.name %>」に登録されているモノ：<%= @search_category.count %>個</h4>
 <% end %>
 
 <div class="search-items">

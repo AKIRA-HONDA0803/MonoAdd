@@ -77,10 +77,8 @@ select {
   }
 }
 
-.alert-danger {
-  // font-family: 'Hachi Maru Pop', cursive;
-  font-size: 20px;
-  // background-color:rgba(255,51,102,0.25);
-  text-align: center;
-  width: 100%;
+.side {
+  position: fixed;
+  top: 25%;
+  left: 5%;
 }

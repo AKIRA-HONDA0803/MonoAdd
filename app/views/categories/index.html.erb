@@ -1,4 +1,4 @@
-<h1 class="category-title">モノのカテゴリー</h1>
+<h1 class="category-title">モノのカテゴリー(<%= @categories.count %>件)</h1>
 <div class="categories">
   <div>
     <% @categories.each do |category| %>
@@ -16,7 +16,7 @@
 
 <div class="side">
   <%= form_with model:@category, local:true do |f| %>
-    <h3><%= f.label :name, "カテゴリーの名前" %></h3>
+    <h3><%= f.label :name, "カテゴリー名を新規登録する" %></h3>
     <%= f.text_field:name, class: "input-field" %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.submit '登録', class: "button create" %>

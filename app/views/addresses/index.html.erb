@@ -1,4 +1,4 @@
-<h1 class="address-title">モノの場所</h1>
+<h1 class="address-title">モノの場所(<%= @addresses.count %>ヶ所)</h1>
 <div class="addresses">
   <div>
     <% @addresses.each do |address| %>
@@ -16,7 +16,7 @@
 
 <div class="side">
   <%= form_with model:@address, local:true do |f| %>
-    <h3><%= f.label :name, "場所の名前" %></h3>
+    <h3><%= f.label :name, "場所の名前を新規登録する" %></h3>
     <%= f.text_field:name, class: "input-field" %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.submit '登録', class: "button create" %>
