@@ -4,7 +4,7 @@
     <% @addresses.each do |address| %>
       <%= link_to search_address_path(address_id: address.id), class: "link" do %>
         <div class="address-list">
-          <span>▶<%= address.name %>(<%= address.item.count %>)</span>
+          <span>▶<%= address.name %>(<%= address.item.count %>個)</span>
         </div>
       <% end %>
       <%= link_to edit_address_path(address) do %>
@@ -17,7 +17,7 @@
 <div class="side">
   <%= form_with model:@address, local:true do |f| %>
     <h3><%= f.label :name, "場所の名前を新規登録する" %></h3>
-    <%= f.text_field:name, class: "input-field" %>
+    <%= f.text_field :name, placeholder: "10文字以内", class: "input-field" %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.submit '登録', class: "button create" %>
   <% end %>

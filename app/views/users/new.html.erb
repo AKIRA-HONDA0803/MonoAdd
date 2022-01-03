@@ -3,18 +3,18 @@
   <div>
     <%= form_with model:@user, local: true do |f| %>
       <div class="mail-form">
-      <%= f.label :email, "メールアドレス" %>
-      <%= f.email_field :email, class: "input-field" %>
+        <%= f.label :email, "メールアドレス" %>
+        <%= f.email_field :email, class: "input-field" %>
       </div><br>
 
       <div class="password-form">
-      <%= f.label :password, "パスワード" %>
-      <%= f.password_field :password, class: "input-field" %>
+        <%= f.label :password, "パスワード" %>
+        <%= f.password_field :password, placeholder: "6文字以上", class: "input-field" %>
       </div><br>
 
       <div class="password_confirmation-form">
-      <%= f.label :password_confirmation, "パスワード確認" %>
-      <%= f.password_field :password_confirmation, class: "input-field" %>
+        <%= f.label :password_confirmation, "パスワード確認" %>
+        <%= f.password_field :password_confirmation, placeholder: "再度パスワードを入力", class: "input-field" %>
       </div><br>
 
       <%= f.submit "登録する", class: "button create" %>

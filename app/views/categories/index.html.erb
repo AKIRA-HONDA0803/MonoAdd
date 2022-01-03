@@ -4,7 +4,7 @@
     <% @categories.each do |category| %>
       <%= link_to search_category_path(category_id: category.id), class: "link" do %>
         <div class="category-list">
-          <span>▶︎<%= category.name %>(<%= category.items.count %>)</span>
+          <span>▶︎<%= category.name %>(<%= category.items.count %>個)</span>
         </div>
       <% end %>
       <%= link_to edit_category_path(category) do %>
@@ -17,7 +17,7 @@
 <div class="side">
   <%= form_with model:@category, local:true do |f| %>
     <h3><%= f.label :name, "カテゴリー名を新規登録する" %></h3>
-    <%= f.text_field:name, class: "input-field" %>
+    <%= f.text_field:name, placeholder: "10文字以内", class: "input-field" %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.submit '登録', class: "button create" %>
   <% end %>
