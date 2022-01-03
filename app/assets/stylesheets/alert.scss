@@ -1,0 +1,17 @@
+.alert_base {
+  font-family: 'Hachi Maru Pop', cursive;
+  font-size: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+
+.alert-danger {
+  @extend .alert_base;
+  background-color:rgba(255,51,102,0.25);
+}
+
+.alert-success {
+  @extend .alert_base;
+  background-color:rgba(204,255,204,0.25);
+}

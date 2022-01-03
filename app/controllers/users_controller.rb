@@ -10,7 +10,8 @@ class UsersController < ApplicationController
       flash[:success] = "アカウントの登録に成功しました。"
       redirect_to root_url
     else
-      render 'new'
+      flash[:danger] = "アカウントの登録に失敗しました。"
+      redirect_to signup_path
     end
   end
 

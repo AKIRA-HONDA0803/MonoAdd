@@ -6,13 +6,19 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-    @category.save
-    redirect_to categories_path
+    if @category.save
+      flash[:success] = "登録に成功しました。"
+      redirect_to categories_path
+    else
+      flash[:danger] = "登録に失敗しました。"
+      redirect_to categories_path
+    end
   end
 
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
+    flash[:success] = "削除に成功しました。"
     redirect_to categories_path
   end
 
@@ -31,10 +37,11 @@ class CategoriesController < ApplicationController
     @category.update(category_params)
     # →一度更新して、下記条件下にItemの個数を上限に設定
     if @items.count >= @category.limit
-      flash[:notice] = "#{@category.name}に該当するモノは#{@items.count}です。登録上限です。"
+      flash[:notice] = "#{@category.name}に登録されているモノは#{@items.count}個です"
       @category.update(limit: @items.count)
       redirect_to edit_category_path(@category)
     else
+      flash[:success] = "更新に成功しました。"
       redirect_to categories_path
     end
   end

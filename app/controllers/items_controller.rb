@@ -18,13 +18,14 @@ class ItemsController < ApplicationController
     @limit_address = @address.find(@item.address_id)
 
     if @limit_category.items.count >= @limit_category.limit
-      flash[:notice] = "⚠カテゴリー：︎#{@limit_category.name}の登録上限です。"
+      flash[:danger] = "⚠カテゴリー：︎#{@limit_category.name}の登録上限です。"
       redirect_to new_item_path
     elsif @limit_address.item.count >= @limit_address.limit
-      flash[:notice] = "⚠場所：︎#{@limit_address.name}の登録上限です。"
+      flash[:danger] = "⚠場所：︎#{@limit_address.name}の登録上限です。"
       redirect_to new_item_path
     else
       @item.save
+      flash[:success] = "登録に成功しました。"
       redirect_to items_path
     end
   end
@@ -36,7 +37,9 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     @item.update(item_params)
-    redirect_to item_path(@item.id)
+
+    flash[:success] = "更新に成功しました。"
+    redirect_to edit_item_path(@item)
   end
 
   def destroy

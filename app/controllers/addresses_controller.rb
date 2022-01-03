@@ -6,8 +6,13 @@ class AddressesController < ApplicationController
 
   def create
     @address = Address.new(address_params)
-    @address.save
-    redirect_to addresses_path
+    if @address.save
+      flash[:success] = "登録に成功しました。"
+      redirect_to addresses_path
+    else
+      flash[:danger] = "登録に失敗しました。"
+      redirect_to addresses_path
+    end
   end
 
   def edit
@@ -25,10 +30,11 @@ class AddressesController < ApplicationController
     @address.update(address_params)
 
     if @items.count >= @address.limit
-      flash[:notice] = "#{@address.name}に存在するモノは#{@items.count}です。登録上限です。"
+      flash[:alert] = "#{@address.name}に登録されているモノは#{@items.count}個です。"
       @address.update(limit: @items.count)
       redirect_to edit_address_path(@address)
     else
+      flash[:success] = "更新に成功しました。"
       redirect_to addresses_path
     end
   end
@@ -36,10 +42,8 @@ class AddressesController < ApplicationController
   def destroy
     @address = Address.find(params[:id])
     @address.destroy
+    flash[:success] = "削除に成功しました。"
     redirect_to addresses_path
-  end
-
-  def show
   end
 
   private
