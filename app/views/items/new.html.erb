@@ -1,7 +1,7 @@
 <h1 class="new-item-title">モノを新しく登録する</h1>
 <div class="new-item-form">
   <%= form_with model:@item, local:true do |f| %>
-    <%= render :partial => 'form', :locals => {:f => f, :edit_page => true} %>
+    <%= render :partial => 'form', :locals => {:f => f} %>
   <% end %>
 </div>
 

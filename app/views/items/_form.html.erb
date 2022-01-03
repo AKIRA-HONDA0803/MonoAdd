@@ -1,10 +1,9 @@
-<% if @item.picture.attached? %>
-  <%= image_tag @item.picture, size: "450x450" %>
-<% end %><br>
 <div class="picture-form">
-  <%= f.label :picture, "画像をアップロード", class: "input-file" do %>
-    <%= f.file_field :picture,class: "image_form" %>
-  <% end %>
+  <%= f.label :picture, "画像" %><br>
+  <% if @item.picture.attached? %>
+    <%= image_tag @item.picture, size: "450x450" %>
+  <% end %><br>
+  <%= f.file_field :picture,class: "image_form" %>
 </div><br>
 <div class="name-form">
   <%= f.label :name, "名前" %>
@@ -24,8 +23,11 @@
 
 
 <% if local_assigns[:edit_page].present? %>
-<div>
   <%= f.submit '更新する', class: "button update btn" %>
+
+  <%= link_to item_path(@item), method: :delete,data: {confirm: "本当に削除しますか？"} do %>
+    <button class="button delete">削除する</button>
+  <% end %>
 
 <% else %>
   <%= f.submit '登録', class: "button create" %>
