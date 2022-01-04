@@ -4,7 +4,7 @@
     <%= form_with model:@category, local:true do |f| %>
       <div class="name-form">
         <%= f.label :name, "カテゴリー名" %>
-        <%= f.text_field :name, placeholder: "カテゴリー名", class: "input-field" %>
+        <%= f.text_field :name, placeholder: "15文字以内", class: "input-field" %>
       </div><br>
 
       <div class="limit-form">

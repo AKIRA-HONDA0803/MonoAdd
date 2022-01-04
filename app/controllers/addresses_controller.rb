@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
   def index
-    @addresses = Address.where(user_id: current_user.id)
+    @addresses = Address.where(user_id: current_user.id).reverse_order
     @address = Address.new
   end
 

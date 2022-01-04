@@ -4,7 +4,7 @@
     <%= form_with model:@address, local:true do |f| %>
       <div class="name-form">
         <%= f.label :name, "場所の名前" %>
-        <%= f.text_field:name, placeholder: "場所の名前", class: "input-field" %>
+        <%= f.text_field:name, placeholder: "15文字以内", class: "input-field" %>
       </div><br>
 
       <div class="limit-form">

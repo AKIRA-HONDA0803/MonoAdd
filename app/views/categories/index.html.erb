@@ -17,7 +17,7 @@
 <div class="side">
   <%= form_with model:@category, local:true do |f| %>
     <h3><%= f.label :name, "カテゴリー名を新規登録する" %></h3>
-    <%= f.text_field:name, placeholder: "10文字以内", class: "input-field" %>
+    <%= f.text_field:name, placeholder: "15文字以内", class: "input-field" %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.submit '登録', class: "button create" %>
   <% end %>

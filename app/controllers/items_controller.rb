@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.where(user_id: current_user.id)
+    @items = Item.where(user_id: current_user.id).reverse_order
     @categories = Category.all
     @addresses = Address.all
   end

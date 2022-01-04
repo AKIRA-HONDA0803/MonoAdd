@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.where(user_id: current_user.id)
+    @categories = Category.where(user_id: current_user.id).reverse_order
     @category = Category.new
   end
 
@@ -55,7 +55,7 @@ class CategoriesController < ApplicationController
   def search_category
     @value = params[:category_id]
     @category = Category.find(@value)
-    @categories = Category.all
+    @categories = Category.where(user_id: current_user.id).reverse_order
     @search_category = Item.where(category_id: @value).reverse_order
     render "search"
   end
@@ -63,7 +63,7 @@ class CategoriesController < ApplicationController
   def search_address
     @value = params[:address_id]
     @address = Address.find(@value)
-    @addresses = Address.all
+    @addresses = Address.where(user_id: current_user.id).reverse_order
     @search_category = Item.where(address_id: @value).reverse_order
     render "search"
   end

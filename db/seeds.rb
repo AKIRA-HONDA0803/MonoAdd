@@ -7,9 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create!(
   {
-    name: "サンプルユーザー",
-    email: "aaa@test.co.jp",
-    password: "aaaaaaaaa"
+    email: "testmail@co.jp",
+    password: "testtest"
   }
   )
 
@@ -17,14 +16,6 @@ Address.create!(
   [
     {
       name: '玄関',
-      user_id: 1
-    },
-    {
-      name: '洗面化粧台',
-      user_id: 1
-    },
-    {
-      name: 'キッチン',
       user_id: 1
     },
     {
@@ -49,17 +40,64 @@ Category.create!(
       user_id: 1
     },
     {
-      name: '本',
-      user_id: 1
-    },
-    {
-      name: 'おもちゃ・ホビー・グッズ',
-      user_id: 1
-    },
-    {
-      name: '家電',
+      name: '仕事用',
       user_id: 1
     }
   ]
 )
 
+item1 = Item.create!(
+      name: 'ブーツ',
+      address_id: 1,
+      category_id: 1,
+      user_id: 1,
+)
+item1.picture.attach(io: File.open(Rails.root.join('app/assets/images/sample/boots.jpg')),filename: 'boots.jpg')
+
+item2 = Item.create!(
+      name: '革靴',
+      address_id: 1,
+      category_id: 1,
+      user_id: 1,
+)
+item2.picture.attach(io: File.open(Rails.root.join('app/assets/images/sample/leathershoes.jpg')),filename: 'leathershoes.jpg')
+
+item3 = Item.create!(
+      name: 'スーツ',
+      address_id: 2,
+      category_id: 1,
+      user_id: 1,
+)
+item3.picture.attach(io: File.open(Rails.root.join('app/assets/images/sample/suit.jpg')),filename: 'suit.jpg')
+
+item4 = Item.create!(
+      name: 'パソコン',
+      address_id: 3,
+      category_id: 3,
+      user_id: 1,
+)
+item4.picture.attach(io: File.open(Rails.root.join('app/assets/images/sample/pc.jpg')),filename: 'pc.jpg')
+
+item5 = Item.create!(
+      name: 'メガネ',
+      address_id: 3,
+      category_id: 2,
+      user_id: 1,
+)
+item5.picture.attach(io: File.open(Rails.root.join('app/assets/images/sample/glasses.jpg')),filename: 'grasses.jpg')
+
+item6 = Item.create!(
+      name: '財布',
+      address_id: 3,
+      category_id: 2,
+      user_id: 1,
+)
+item6.picture.attach(io: File.open(Rails.root.join('app/assets/images/sample/wallet.jpg')),filename: 'wallet.jpg')
+
+item7 = Item.create!(
+      name: 'ジーンズ',
+      address_id: 2,
+      category_id: 1,
+      user_id: 1,
+)
+item7.picture.attach(io: File.open(Rails.root.join('app/assets/images/sample/jeans.jpg')),filename: 'jeans.jpg')
